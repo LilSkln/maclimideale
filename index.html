@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ma Clim Idéale — Trouve la clim qui te convient vraiment</title>
+<meta name="description" content="Répondez à 5 questions simples, nous vous recommandons les 3 climatiseurs les plus adaptés à votre logement.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="leaves-layer" id="leavesLayer"></div>
+<div class="leaves-layer" id="snowLayer"></div>
+
+<div class="wrap">
+
+  <header class="site-nav">
+    <a href="#" class="logo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2">
+        <path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19" stroke-linecap="round"/>
+      </svg>
+      Ma Clim Idéale
+    </a>
+  </header>
+
+  <!-- HERO + QUIZ START -->
+  <section id="homeView">
+    <div class="hero">
+      <span class="eyebrow">🌿 Conseiller, pas comparateur</span>
+      <h1 class="hero-title">Trouve facilement la clim qui te convient vraiment</h1>
+      <p class="hero-sub">Réponds à 5 questions simples. Nous comparons plusieurs climatiseurs et sélectionnons uniquement les 3 meilleurs pour ton logement.</p>
+      <button class="btn-primary" id="startQuizBtn">Je lance mon diagnostic</button>
+      <span class="hero-timer">⏱ Diagnostic en moins d'une minute</span>
+    </div>
+
+    <div class="showcase-section">
+      <h3>Nos climatiseurs les plus demandés</h3>
+      <p>Un aperçu avant de commencer — priorité aux modèles mobiles, sans travaux.</p>
+      <div class="result-cards showcase-cards" id="showcaseCards"></div>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <h3>Ultra silencieux</h3>
+        <p>Nous expliquons réellement les décibels, pas juste un chiffre brut.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Économisez de l'électricité</h3>
+        <p>Une estimation de coût annuel pour chaque modèle recommandé.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Pensé pour vous</h3>
+        <p>Jamais plus de 3 résultats. Trop de choix, c'est plus personne qui choisit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="quiz-panel" id="quizPanel" style="display:none;">
+    <div class="quiz-meta">
+      <span class="quiz-step-label" id="stepLabel">Question 1 sur 5</span>
+      <span class="quiz-percent" id="stepPercent">20%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:20%;"></div></div>
+
+    <h2 class="quiz-question" id="questionTitle"></h2>
+    <p class="quiz-hint" id="questionHint">Choisis l'option qui correspond le mieux.</p>
+
+    <div class="options-list" id="optionsList"></div>
+
+    <div class="quiz-nav">
+      <button class="btn-back" id="backBtn">← Retour</button>
+      <button class="btn-next" id="nextBtn" disabled>Continuer</button>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results-section" id="resultsSection">
+    <div class="results-intro">
+      <h2>🎉 Bonne nouvelle</h2>
+      <p>Nous avons trouvé les climatiseurs les plus adaptés à votre logement.</p>
+    </div>
+    <div class="filter-tabs" id="filterTabs"></div>
+    <div class="result-cards" id="resultCards"></div>
+    <button class="restart-link" id="restartBtn">↺ Refaire le diagnostic</button>
+  </section>
+
+  <footer>Ma Clim Idéale — maclimideale.fr</footer>
+
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
