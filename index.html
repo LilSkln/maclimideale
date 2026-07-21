@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ma Clim Idéale — Trouve la clim qui te convient vraiment</title>
+<meta name="description" content="Répondez à 5 questions simples, nous vous recommandons les 3 climatiseurs les plus adaptés à votre logement.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="leaves-layer" id="leavesLayer"></div>
+<div class="leaves-layer" id="snowLayer"></div>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="url(#logoGrad)" stroke-width="2">
+        <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="24" y2="24">
+          <stop offset="0%" stop-color="#185FA5"/><stop offset="100%" stop-color="#639922"/>
+        </linearGradient></defs>
+        <path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19" stroke-linecap="round"/>
+      </svg>
+      Ma Clim Idéale
+    </a>
+    <nav class="nav-links">
+      <a href="#top" class="active">Accueil</a>
+      <a href="#selection">Sélection</a>
+      <a href="#categories">Catégories</a>
+      <a href="#guides">Guides</a>
+    </nav>
+    <button class="btn-nav-cta" id="navCtaBtn">Trouver ma clim <span>→</span></button>
+  </div>
+</header>
+
+<div class="wrap" id="top">
+
+  <!-- HERO + QUIZ START -->
+  <section id="homeView">
+    <div class="hero hero-split">
+      <div class="hero-copy">
+        <span class="eyebrow">❄️ Comparateur indépendant</span>
+        <h1 class="hero-title">Trouve facilement la clim qui te convient <span class="grad-text">vraiment</span></h1>
+        <p class="hero-sub">Réponds à 5 questions simples. Nous comparons plusieurs climatiseurs et sélectionnons uniquement les 3 meilleurs pour ton logement.</p>
+
+        <div class="hero-points">
+          <div class="hero-point"><span class="hp-icon">⏱</span><div><b>Rapide</b><small>Moins d'une minute</small></div></div>
+          <div class="hero-point"><span class="hp-icon">🎯</span><div><b>Personnalisé</b><small>Adapté à ta pièce</small></div></div>
+          <div class="hero-point"><span class="hp-icon">💶</span><div><b>Sans blabla</b><small>3 résultats, pas 50</small></div></div>
+        </div>
+
+        <button class="btn-primary" id="startQuizBtn">Je lance mon diagnostic</button>
+        <span class="hero-timer">⏱ Diagnostic en moins d'une minute</span>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-glow"></div>
+        <div class="hero-illustration">
+          <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="130" cy="130" r="118" fill="url(#ringGrad)" opacity="0.12"/>
+            <defs>
+              <linearGradient id="ringGrad" x1="0" y1="0" x2="260" y2="260">
+                <stop offset="0%" stop-color="#185FA5"/><stop offset="100%" stop-color="#639922"/>
+              </linearGradient>
+            </defs>
+            <rect x="55" y="95" width="150" height="52" rx="16" fill="#FFFFFF" stroke="#185FA5" stroke-width="2.5"/>
+            <rect x="70" y="112" width="44" height="12" rx="6" fill="#185FA5" opacity="0.9"/>
+            <rect x="120" y="112" width="44" height="12" rx="6" fill="#185FA5" opacity="0.5"/>
+            <rect x="170" y="112" width="24" height="12" rx="6" fill="#639922" opacity="0.7"/>
+            <circle cx="182" cy="103" r="4" fill="#639922"/>
+            <path d="M75 147c8 14 11 22 5 36M118 147c8 16 6 24 0 36M162 147c8 14 11 22 5 36" stroke="#185FA5" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="float-card fc-1"><span>❄️</span><div><b>19 dB</b><small>dès le modèle le plus silencieux</small></div></div>
+        <div class="float-card fc-2"><span>⚡</span><div><b>A+++</b><small>classe énergie la plus haute</small></div></div>
+        <div class="float-card fc-3"><span>🛞</span><div><b>Sans travaux</b><small>modèles portatifs disponibles</small></div></div>
+      </div>
+    </div>
+
+    <div class="trust-strip">
+      <span>22 modèles comparés</span>
+      <span class="dot">·</span>
+      <span>Fiches techniques vérifiées</span>
+      <span class="dot">·</span>
+      <span>Liens Amazon officiels</span>
+      <span class="dot">·</span>
+      <span>Mis à jour manuellement</span>
+    </div>
+
+    <div class="showcase-section">
+      <h3>Nos climatiseurs les plus demandés</h3>
+      <p>Un aperçu avant de commencer — priorité aux modèles mobiles, sans travaux.</p>
+      <div class="result-cards showcase-cards" id="showcaseCards"></div>
+    </div>
+
+    <!-- COMMENT ÇA MARCHE / CONFIANCE -->
+    <div class="split-panels">
+      <div class="panel panel-light">
+        <span class="eyebrow eyebrow-blue">✨ Comment ça marche ?</span>
+        <p class="panel-sub">Trouve ta clim idéale en 3 étapes simples</p>
+        <div class="steps-row">
+          <div class="step"><span class="step-num">1</span><b>Réponds au questionnaire</b><small>En moins d'une minute, dis-nous tes besoins et contraintes</small></div>
+          <div class="step"><span class="step-num">2</span><b>On analyse pour toi</b><small>Notre algorithme compare les modèles selon tes critères</small></div>
+          <div class="step"><span class="step-num">3</span><b>Découvre tes 3 meilleures clims</b><small>Comparatif détaillé et lien direct vers l'offre</small></div>
+        </div>
+      </div>
+      <div class="panel panel-dark">
+        <span class="eyebrow eyebrow-dark">Pourquoi nous faire confiance ?</span>
+        <ul class="trust-list">
+          <li>✓ Comparateur indépendant, pas de sponsoring déguisé</li>
+          <li>✓ Données techniques vérifiées sur fiches constructeur</li>
+          <li>✓ Jamais plus de 3 résultats affichés</li>
+          <li>✓ Prix et liens mis à jour manuellement</li>
+          <li>✓ Aucune donnée personnelle collectée</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CATÉGORIES -->
+    <div class="categories-section" id="categories">
+      <h3>Top catégories</h3>
+      <div class="categories-grid" id="categoriesGrid"></div>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <h3>Ultra silencieux</h3>
+        <p>Nous expliquons réellement les décibels, pas juste un chiffre brut.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Économisez de l'électricité</h3>
+        <p>Une estimation de coût annuel pour chaque modèle recommandé.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Pensé pour vous</h3>
+        <p>Jamais plus de 3 résultats. Trop de choix, c'est plus personne qui choisit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="quiz-panel" id="quizPanel" style="display:none;">
+    <div class="quiz-meta">
+      <span class="quiz-step-label" id="stepLabel">Question 1 sur 5</span>
+      <span class="quiz-percent" id="stepPercent">20%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:20%;"></div></div>
+
+    <h2 class="quiz-question" id="questionTitle"></h2>
+    <p class="quiz-hint" id="questionHint">Choisis l'option qui correspond le mieux.</p>
+
+    <div class="options-list" id="optionsList"></div>
+
+    <div class="quiz-nav">
+      <button class="btn-back" id="backBtn">← Retour</button>
+      <button class="btn-next" id="nextBtn" disabled>Continuer</button>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results-section" id="resultsSection">
+    <div class="results-intro">
+      <h2>🎉 Bonne nouvelle</h2>
+      <p>Nous avons trouvé les climatiseurs les plus adaptés à votre logement.</p>
+    </div>
+    <div class="filter-tabs" id="filterTabs"></div>
+    <div class="result-cards" id="resultCards"></div>
+    <button class="restart-link" id="restartBtn">↺ Refaire le diagnostic</button>
+  </section>
+
+</div>
+
+<!-- SÉLECTION DU MOMENT (dark, full width) -->
+<section class="selection-dark" id="selection">
+  <div class="wrap">
+    <div class="selection-head">
+      <div>
+        <span class="eyebrow eyebrow-dark">🔥 Sélection du moment</span>
+        <p class="panel-sub panel-sub-dark">Les climatiseurs les mieux notés de notre comparatif</p>
+      </div>
+      <button class="btn-outline-light" id="seeAllBtn">Voir tous les modèles →</button>
+    </div>
+    <div class="selection-scroll" id="selectionScroll"></div>
+  </div>
+</section>
+
+<!-- GUIDES -->
+<div class="wrap" id="guides">
+  <div class="guides-section">
+    <h3>Nos guides et outils pour bien choisir</h3>
+    <div class="guides-grid">
+      <a href="#quizPanel" class="guide-card guide-dark">
+        <span class="guide-icon">📐</span>
+        <b>Calculateur de puissance</b>
+        <small>Estime la puissance idéale selon la surface de ta pièce.</small>
+        <span class="guide-link">Calculer →</span>
+      </a>
+      <a href="#quizPanel" class="guide-card">
+        <span class="guide-icon">🔊</span>
+        <b>Échelle du bruit</b>
+        <small>Comprends facilement les niveaux sonores des climatiseurs.</small>
+        <span class="guide-link">Voir l'échelle →</span>
+      </a>
+      <a href="#resultsSection" class="guide-card">
+        <span class="guide-icon">⚖️</span>
+        <b>Comparatif</b>
+        <small>Compare côte à côte les modèles qui t'intéressent.</small>
+        <span class="guide-link">Comparer →</span>
+      </a>
+      <a href="#quizPanel" class="guide-card">
+        <span class="guide-icon">📘</span>
+        <b>Guide d'achat</b>
+        <small>Tous nos conseils pour bien choisir ton climatiseur.</small>
+        <span class="guide-link">Lire le guide →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>Ma Clim Idéale — maclimideale.fr</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
